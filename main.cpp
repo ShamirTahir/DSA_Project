@@ -1,60 +1,11 @@
-#include<iostream>
-#include<string>
-using namespace std;
-class node{
-    string name,seatid,depcity,arrcity,time;
-    node* next;
-    public:
-    node(string n,string id,string dcity,string arcity,string t){
-        name = n;
-        seatid = id;
-        depcity = dcity;
-        arrcity = arcity;
-        time = t;
-    }
-    string getname(){
-        return name;
-    }
-    void setname(string n){
-        name = n;
-    }
-    string getseatid(){
-        return seatid;
-    }
-    void setseatid(string id){
-        seatid = id;
-    }
-    string getdepcity(){
-        return depcity;
-    }
-    void setdepcity(string dcity){
-        depcity = dcity;
-    }
-    string getarrcity(){
-        return arrcity;
-    }
-    void setarrcity(string arcity){
-        arrcity = arcity;
-    }
-    string gettime(){
-        return time;
-    }
-    void settime(string t){
-        time = t;
-    }
-    node* getnext(){
-        return next;
-    }
-    void setnext(node* nt){
-        next = nt;
-    }
-}
-class list{
 
-}
+#include "list.cpp"
+
 int main(){
     int select1,cnic;
     string name,seatid,depcity,arrcity,time;
+    list lahToisl("LahoretoIslamabad");
+    t:
     cout<<"Welcome to Airline\n";
     cout<<"Press 1,2 or 3\n";
     cout<<"1. Book your Seat\n";
@@ -82,6 +33,7 @@ int main(){
         cout<<"Enter your Time of Departure ";
         cin>>time;
         cout<<"Your seat have been Booked!";
+        lahToisl.addatlast(name,cnic,depcity,arrcity,time);
     }
     if(select1==2){
         cout<<"Seat Cancellation Process\n";
@@ -101,5 +53,6 @@ int main(){
         cout<<"Enter your CNIC ";
         cin>>cnic;
     }
+    goto t;
     return 0;
 }
