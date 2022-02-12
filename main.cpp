@@ -4,7 +4,7 @@
 int main(){
     int select1,cnic;
     string name,seatid,depcity,arrcity,time;
-    list lahToisl("LahoretoIslamabad");
+    list lahToisl("LtoI");
     t:
     cout<<"Welcome to Airline\n";
     cout<<"Press 1,2 or 3\n";
@@ -32,8 +32,9 @@ int main(){
         cin>>depcity;
         cout<<"Enter your Time of Departure ";
         cin>>time;
+        cin.ignore();
         cout<<"Your seat have been Booked!";
-        lahToisl.addatlast(name,cnic,depcity,arrcity,time);
+    
     }
     if(select1==2){
         cout<<"Seat Cancellation Process\n";

@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include<iostream>
+#include<fstream>
 #include<string>
 using namespace std;
 class node{
@@ -32,5 +33,7 @@ public:
     void addatlast(string n,int c,string dcity,string arcity,string t);
     string generateseatid();
     string getflightTitle();
+    node* gethead();
 };
+void loaddata(list *l);
 #endif

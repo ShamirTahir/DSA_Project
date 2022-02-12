@@ -57,7 +57,7 @@ void list::addatlast(string n,int c,string dcity,string arcity,string t)
 {
 
     node *temp = new node( n, c, dcity, arcity, t);
-    temp->setseatid(generateseatid());
+    //temp->setseatid(generateseatid());
     node *tlist = head;
     if (head == nullptr)
     {
@@ -75,4 +75,17 @@ void list::addatlast(string n,int c,string dcity,string arcity,string t)
 };
 string list::generateseatid(){
     return getflightTitle() + to_string(count);
+}
+node* list::gethead()
+{
+    return head;
+}
+void loaddata(list *l)
+{
+    ofstream theFile("lahtoisl.txt");
+    node *tlist = l->gethead();;
+    while (tlist->getnext() != nullptr)
+    {
+        theFile << tlist->getseatid() << " " << tlist->getname() << " " << tlist->getarrcity() << " " << tlist->getdepcity() << " " << tlist->gettime() << endl;
+    }
 }
