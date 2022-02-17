@@ -72,7 +72,20 @@ void list::addatlast(string n,int c,string dcity,string arcity,string t)
     count++;
     
     return;
-};
+}
+void list::display(){
+    node *temp = head;
+    while (temp != nullptr)
+    {
+        cout<<"\nName: "<<temp->getname();
+        cout<<"City of Departure: "<<temp->getdepcity();
+        cout<<"City of Arrival: "<<temp->getarrcity();
+        cout<<"Time of Departure: "<<temp->gettime();
+        cout<<"\n \n";
+        temp = temp->getnext();
+    }
+    
+}
 string list::generateseatid(){
     return getflightTitle() + to_string(count);
 }
@@ -80,12 +93,21 @@ node* list::gethead()
 {
     return head;
 }
-void loaddata(list *l)
+void writedata(list *L)
 {
-    ofstream theFile("lahtoisl.txt");
-    node *tlist = l->gethead();;
-    while (tlist->getnext() != nullptr)
-    {
-        theFile << tlist->getseatid() << " " << tlist->getname() << " " << tlist->getarrcity() << " " << tlist->getdepcity() << " " << tlist->gettime() << endl;
-    }
+    // ofstream theFile;
+    // theFile.open("lahtoisl.txt");
+    // node *tlist = l->gethead();
+    // if(theFile.is_open()){
+    //     cout<<"Your file is loaded\n";
+    // }
+    // while (tlist != nullptr)
+    // {
+    //     theFile << tlist->getseatid() << " " << tlist->getname() << " " << tlist->getarrcity() << " " << tlist->getdepcity() << " " << tlist->gettime() << endl;
+    //     tlist = tlist->getnext();       
+    // }
+    // theFile.close();
+    ofstream os("linkedList.txt",ios::binary);  
+    L->display();  
+    return ;  
 }

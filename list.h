@@ -34,6 +34,7 @@ public:
     string generateseatid();
     string getflightTitle();
     node* gethead();
+    void display();
 };
 void loaddata(list *l);
 #endif

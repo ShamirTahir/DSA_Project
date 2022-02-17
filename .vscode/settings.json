@@ -1,5 +1,7 @@
 {
-    "files.associations": {
-        "string": "cpp"
-    }
+  "files.associations": {
+    "*.ejs": "html",
+    "string": "cpp",
+    "iostream": "cpp"
+  }
 }
