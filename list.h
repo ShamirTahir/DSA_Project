@@ -3,17 +3,19 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+// #include<stdio.h>
+// #include<stdlib.h>
 using namespace std;
 class node{
-    string name,seatid,depcity,arrcity,time;
-    int cnic;
+    string name,depcity,arrcity,time,flighttitle;
+    int seatid;
     node* next;
     public:
-    node(string n,int c,string dcity,string arcity,string t);
+    node(string n,string dcity,string arcity,string t);
     string getname();
     void setname(string n);
-    string getseatid();
-    void setseatid(string id);
+    int getseatid();
+    void setseatid(int id);
     string getdepcity();
     void setdepcity(string dcity);
     string getarrcity();
@@ -22,19 +24,39 @@ class node{
     void settime(string t);
     node* getnext();
     void setnext(node* nt);
+    void display();
 };
 class list{
-private:
     node *head;
     int count;
     string flightTitle;
+    string departureCity;
+    string arrivalCity;
 public:
-    list(string ft);
-    void addatlast(string n,int c,string dcity,string arcity,string t);
-    string generateseatid();
+    list(string ft,string d,string a);
+    void addatlast(string n,string dcity,string arcity,string t);
+    void addatlast1(string n,string dcity,string arcity,string t,int seatid);
+    int getcount();
     string getflightTitle();
     node* gethead();
-    void display();
+    string getdepartureCity();
+    string getarrivalCity();
+    void removenode(int key);
 };
-void loaddata(list *l);
+class bf{
+    int size;
+    int* array;
+    list* listofseats;
+public:
+    bf();
+    int hash(int n);
+    void insert(node* n);
+    bool filter(node* n);
+    void addlistofilter(list* l);
+};
+void writedata(list& l1,list& l2,list& l3);
+void checkandadd(list& l1,list& l2,list& l3,string n,string dcity,string arcity,string t);
+void loadlists(list& l1,list& l2,list& l3);
+void checkandconfirm(list& l1,list& l2,list& l3,string dcity,string arcity,int si);
+void checkandcancel(list& l1,list& l2,list& l3,string dcity,string arcity,int si);
 #endif
